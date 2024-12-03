@@ -202,7 +202,7 @@ public:
 
 private:
 	std::unordered_map<entity_id_t, std::unordered_map<component_id_t, void*>>	m_map_entity_components_data;
-	std::unordered_map<component_id_t, std::unordered_set<entity_id_t>>			m_map_component_common_entitites;
+	std::unordered_map<component_id_t, std::unordered_set<entity_id_t>>		m_map_component_common_entitites;
 
 private:
 	entity_id_t m_id_counter;
