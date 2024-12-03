@@ -18,7 +18,7 @@ struct PhysicsComponent2D {
 
 //	If your component uses custom memory allocation (such as new keyword), then
 //	you need to write memory deallocation logic in component destructor, and then use
-//	delete_component<T>(id) methond manually
+//	delete_component<T>(id) method manually
 
 //Example
 struct TextureComponent{
