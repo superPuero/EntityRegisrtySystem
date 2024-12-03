@@ -9,7 +9,7 @@ Include ERS folder in your project and include EntityRegistrySystem.h from ERS/s
 
 
 # Notes
-General information and debugging in turned on by default.
+General information logging and debugging in turned on by default.
 
 You can configure this is ERS/src/Core/Base.h
 
