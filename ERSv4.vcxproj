@@ -129,7 +129,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ERS\src\Components.h" />
     <ClInclude Include="ERS\src\Core\Assert.h" />
     <ClInclude Include="ERS\src\Core\Base.h" />
     <ClInclude Include="ERS\src\Core\Debug.h" />
@@ -140,7 +139,6 @@
     <ClInclude Include="ERS\Core\Debug.h" />
     <ClInclude Include="ERS\Core\Log.h" />
     <ClInclude Include="ERS\PrecompiledHeaders.h" />
-    <ClInclude Include="ERS\src\Preprocessor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ERS\src\EntityRegistrySystem.cpp" />

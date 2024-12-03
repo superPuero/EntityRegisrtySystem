@@ -1,7 +1,3 @@
-
-#define ERS_ENABLE_DEBUG
-#define ERS_ENABLE_INFO
-
 #include "EntityRegistrySystem.h"
 
 //Definition of component is all that is required to create it
@@ -52,6 +48,6 @@ int main() {
 	for (auto entity : ers.get_by_common_components<PhysicsComponent2D, TransformComponent2D>()) {
 
 		//Print entitiy IDs;
-		std::cout << (uint32_t)entity;
+		std::cout << '\n' << "ID: " << (uint32_t)entity;
 	}
 }
