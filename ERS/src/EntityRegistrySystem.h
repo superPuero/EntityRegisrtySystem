@@ -116,8 +116,6 @@ public:
 			return nullptr;
 		}
 
-		ERS_LOG_INFO("Got component", component_id.name(), "from entity", entity_id);
-
 		return ((G*)m_map_entity_components_data.at(entity_id).at(component_id));
 
 	}
@@ -198,6 +196,30 @@ public:
 
 		return result;
 
+	}
+
+	template<typename Component>
+	_NODISCARD inline std::unordered_set<Component*> get_every_component_data() {
+
+		component_id_t component_id = typeid(Component);
+
+		if (!does_component_exist(component_id)) {
+			ERS_LOG_ERROR("Trying to get data of all components", component_id.name(), "that do not exsist");
+			return std::unordered_set<Component*>();
+		}
+
+		if (m_map_component_common_entitites.at(component_id).empty()) {
+			ERS_LOG_WARNING("Trying to get data of all components", component_id.name(), "that do not have any entities assosiated with is");
+			return std::unordered_set<Component*>();
+		}
+
+		std::unordered_set<Component*> set_return;
+
+		for (entity_id_t entity_id : m_map_component_common_entitites.at(component_id)) {
+			set_return.insert( (Component*)m_map_entity_components_data.at(entity_id).at(component_id) );
+		}
+
+		return set_return;
 	}
 
 private:

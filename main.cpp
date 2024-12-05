@@ -1,4 +1,4 @@
-#include "EntityRegistrySystem.h"
+#include "ERS/src/EntityRegistrySystem.h"
 
 //Definition of component is all that is required to create it
 struct Vec2 {
@@ -17,7 +17,7 @@ struct PhysicsComponent2D {
 //	delete_component<T>(id) method manually
 
 //Example
-struct TextureComponent{
+struct TextureComponent {
 	void* texture;
 	~TextureComponent() {
 		delete texture;
@@ -45,9 +45,16 @@ int main() {
 	transform1->position.x = 10;
 
 	//Get set of entities with common components
-	for (auto entity : ers.get_by_common_components<PhysicsComponent2D, TransformComponent2D>()) {
+	for (entity_id_t entity : ers.get_by_common_components<PhysicsComponent2D, TransformComponent2D>()) {
 
-		//Print entitiy IDs;
+		//Print entitiy IDs
 		std::cout << '\n' << "ID: " << (uint32_t)entity;
+	}
+
+	//Get set of pointer to all occurrences of specific component
+	for (TransformComponent2D* transform : ers.get_every_component_data<TransformComponent2D>()) {
+
+		//Print values of component
+		std::cout << '\n' << "Transfrorm X: " << transform->position.x;
 	}
 }
