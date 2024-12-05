@@ -14,7 +14,8 @@ struct PhysicsComponent2D {
 
 //	If your component uses custom memory allocation (such as new keyword), then
 //	you need to write memory deallocation logic in component destructor, and then use
-//	delete_component<T>(id) method manually
+//	delete_component<T>(id) method manually. ERS Destructor will not invoke individial
+//	component destructors, instead their memory will be cleared by bare delete operator, as if they are just void *.
 
 //Example
 struct TextureComponent {
